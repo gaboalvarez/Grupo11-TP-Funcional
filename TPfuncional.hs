@@ -10,11 +10,16 @@ nop procesador = procesador {contador = contador procesador +1}
 aumentarTresPosiciones procesador = nop.nop.nop
 
 -- 3.3
-loadv procesador valor = procesador {acumuladorA = valor, contador = contador procesador +1}
+lodv valor procesador = procesador {acumuladorA = valor, contador = contador procesador +1}
 swap procesador = procesador {acumuladorA = acumuladorB procesador, acumuladorB = acumuladorA procesador, contador = contador procesador +1}
 add procesador = procesador {acumuladorA = acumuladorA procesador + acumuladorB procesador, acumuladorB = 0, contador = contador procesador +1}
 
--- sumar10y22 = add.(loadv 22).swap.(loadv 10)
+-- sumar10y22 = add.(loadv 22).swap.(loadv 10) PORQUE MIERDA NO FUNCIONA :(
+
+-- 3.4
+-- str adress valor procesador = procesador {memoria = take (adress-1) (memoria procesador) ++ valor ++ drop adress (memoria procesador), contador = contador procesador +1}
+-- lod adress procesador = procesador {memoria = take (adress-1) (memoria procesador) ++ ([acumuladorA procesador]) ++ drop adress (memoria procesador), contador = contador procesador +1}
+
 
 
 
